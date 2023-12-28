@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  mysql:
+    container_name: nci_db
+    image: mysql
+    restart: no
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: crime_detection
+    ports:
+      - "3306:3306"
+  adminer:
+    image: adminer
+    restart: no
+    ports:
+      - 8080:8080
